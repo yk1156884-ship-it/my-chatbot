@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YK ChatBot</title>
+
+  <style>
+
+    body{
+      margin:0;
+      padding:0;
+      font-family:Arial, sans-serif;
+      background:#0f172a;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
+
+    .chat-container{
+      width:400px;
+      background:white;
+      border-radius:15px;
+      overflow:hidden;
+      box-shadow:0 0 15px rgba(0,0,0,0.3);
+    }
+
+    .chat-header{
+      background:#2563eb;
+      color:white;
+      text-align:center;
+      padding:15px;
+      font-size:22px;
+      font-weight:bold;
+    }
+
+    #chatBox{
+      height:400px;
+      padding:10px;
+      overflow-y:auto;
+      background:#f1f5f9;
+    }
+
+    .user{
+      text-align:right;
+      margin:10px;
+    }
+
+    .bot{
+      text-align:left;
+      margin:10px;
+    }
+
+    .user span{
+      background:#2563eb;
+      color:white;
+      padding:10px;
+      border-radius:10px;
+      display:inline-block;
+    }
+
+    .bot span{
+      background:#e2e8f0;
+      color:black;
+      padding:10px;
+      border-radius:10px;
+      display:inline-block;
+    }
+
+    .input-area{
+      display:flex;
+      border-top:1px solid #ccc;
+    }
+
+    #userInput{
+      flex:1;
+      padding:15px;
+      border:none;
+      outline:none;
+      font-size:16px;
+    }
+
+    button{
+      padding:15px 20px;
+      border:none;
+      background:#2563eb;
+      color:white;
+      cursor:pointer;
+      font-size:16px;
+    }
+
+    button:hover{
+      background:#1d4ed8;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="chat-container">
+
+  <div class="chat-header">
+    YK ChatBot 🤖
+  </div>
+
+  <div id="chatBox"></div>
+
+  <div class="input-area">
+    <input type="text" id="userInput" placeholder="Message likho...">
+    <button onclick="sendMessage()">Send</button>
+  </div>
+
+</div>
+
+<script>
+
+function sendMessage(){
+function sendMessage(){
+
+  let input = document.getElementById("userInput").value;
+
+  if(input === ""){
+    return;
+  }
+
+  let lowerInput = input.toLowerCase();
+
+  let reply = "";
+
+  if(lowerInput.includes("salam")){
+    reply = "Walikum Salam 👋";
+  }
+
+  else if(lowerInput.includes("hello")){
+    reply = "Hello 👋";
+  }
+
+  else if(lowerInput.includes("kia haal hai")){
+    reply = "Main theek hoon 😊";
+  }
+
+  else if(lowerInput.includes("tumhara naam")){
+    reply = "Mera naam YK ChatBot hai 🤖";
+  }
+
+  else if(lowerInput.includes("help")){
+    reply = "Main aap ki madad kar sakta hoon 👍";
+  }
+
+  else{
+    reply = "Mujhe samajh nahi aya 🤔";
+  }
+
+  let chatBox = document.getElementById("chatBox");
+
+  chatBox.innerHTML +=
+  "<div class='user'><span>" + input + "</span></div>" +
+  "<div class='bot'><span>" + reply + "</span></div>";
+
+  document.getElementById("userInput").value = "";
+
+}
+
+  let input = document.getElementById("userInput").value;
+
+  if(input === ""){
+    return;
+  }
+
+  let lowerInput = input.toLowerCase();
+
+  let reply = "";
+
+  if(lowerInput.includes("salam")){
+    reply = "Walikum Salam 👋";
+  }
+
+  else if(lowerInput.includes("kaise ho")){
+    reply = "Main theek hoon 😊";
+  }
+
+  else if(lowerInput.includes("tumhara naam")){
+    reply = "Mera naam YK ChatBot hai 🤖";
+  }
+
+  else if(lowerInput.includes("allah")){
+    reply = "Allah hum sab ka creator hai ❤️";
+  }
+
+  else if(lowerInput.includes("bye")){
+    reply = "Allah Hafiz 👋";
+  }
+
+  else{
+    reply = "Mujhe samajh nahi aya 🤔";
+  }
+
+  let chatBox = document.getElementById("chatBox");
+
+  chatBox.innerHTML += `
+    <div class="user">
+      <span>${input}</span>
+    </div>
+
+    <div class="bot">
+      <span>${reply}</span>
+    </div>
+  `;
+
+  document.getElementById("userInput").value = "";
+
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+</script>
+
+</body>
+</html>
